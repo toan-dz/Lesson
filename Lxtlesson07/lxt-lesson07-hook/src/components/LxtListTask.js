@@ -1,19 +1,22 @@
 import React from "react";
 
-export default function LxtListTask(renderLxtListTask, onLxtTaskEdit,onTaskDelete) {
+export default function LxtListTask(
+  renderLxtListTask,
+  onLxtTaskEdit,
+  onTaskDelete
+) {
   console.log(renderLxtListTask);
   //ham xu ly
   const lxtHandleEdit = (param) => {
     console.log("Click edit:", param);
     onLxtTaskEdit(param); //
   };
-  //xoa 
-  const lxtHandleDelete = (param)=>{
-    if (window.confim('bạn có chắc chắn xóa không')){
-        onTaskDelete(param)
+  //xoa
+  const lxtHandleDelete = (param) => {
+    if (window.confim("bạn có chắc chắn xóa không")) {
+      onTaskDelete(param);
     }
-  }
-  
+  };
 
   //render data
   let lxtElmentTask = renderLxtListTask.map((task, is, index) => {
@@ -34,8 +37,9 @@ export default function LxtListTask(renderLxtListTask, onLxtTaskEdit,onTaskDelet
             <button
               className="btn btn-danger"
               onClick={() => lxtHandleDelete(task)}
-            
-            > Remove
+            >
+              {" "}
+              Remove
             </button>
           </td>
         </tr>
