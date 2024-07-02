@@ -1,20 +1,18 @@
 import React, { useEffect, useState } from "react";
 
-export default function LxtTaskAdd({
-  renderLxtTask,
-  LxtOnSubmit,
-  renderLxtIsAddOrEdit,
-}) {
+export default function LxtTaskAdd({ renderLxtTask, LxtOnSubmit }) {
+  // const LxtTaskObj = {
+  //   lxt_taskId: 0,
+  //   lxt_taskName: "",
+  //   lxt_level: "",
+  // };
   const [LxTask, setLxtTask] = useState(renderLxtTask);
-
   useEffect(() => {
     setLxtTask(renderLxtTask);
   }, [renderLxtTask]);
-
-  const lxtTieuDe = renderLxtIsAddOrEdit
-    ? "Thêm mới task"
-    : "Sửa thông tin task";
-
+  //
+const lxtTieuDe = renderLxtIsAddOrEdit==true?"Thêm mới task":"Sửa thông tin task"
+  //
   const lxtHanderchange = (lxtEvent) => {
     let name = lxtEvent.target.name;
     let value = lxtEvent.target.value;
@@ -25,16 +23,14 @@ export default function LxtTaskAdd({
       };
     });
   };
-
   const lxtHanderSubmit = (lxtEvent) => {
     lxtEvent.preventDefault();
     LxtOnSubmit(LxTask);
   };
-
   return (
     <div>
       <h2>{lxtTieuDe}</h2>
-      <form>
+      <from>
         <div className="input-group- mb-3">
           <span className="input-group- mb-3" id="basic-addon1">
             Task ID
@@ -44,10 +40,10 @@ export default function LxtTaskAdd({
             type="text"
             name="lxt_taskId"
             value={LxTask.lxt_taskId}
-            onChange={lxtHanderchange}
-            className="form-control"
-            placeholder="Username"
-            aria-label="Username"
+            onChange={"lxtHanderchange"}
+            class="form-control"
+            placeholder="Usename"
+            aria-label="Usename"
             aria-describedby="basic-addon1"
           />
         </div>
@@ -59,10 +55,10 @@ export default function LxtTaskAdd({
           <input
             name="lxt_taskName"
             value={LxTask.lxt_taskName}
-            onChange={lxtHanderchange}
-            className="form-control"
-            placeholder="Username"
-            aria-label="Username"
+            onChange={"lxtHanderchange"}
+            class="form-control"
+            placeholder="Usename"
+            aria-label="Usename"
             aria-describedby="basic-addon1"
           />
         </div>
@@ -71,15 +67,15 @@ export default function LxtTaskAdd({
           <select
             name="lxt_level"
             value={LxTask.lxt_level}
-            onChange={lxtHanderchange}
+            onChange={"lxtHanderchange"}
           >
-            <option value="Small">Small</option>
-            <option value="Medium">Medium</option>
-            <option value="High">High</option>
+            <option value={"Small"}>Small</option>
+            <option value={"Medium"}>Medium</option>
+            <option value={"High"}>High</option>
           </select>
         </div>
         <button onClick={lxtHanderSubmit}>Ghi Lại</button>
-      </form>
+      </from>
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import "./App.css";
 import { React, useState } from "react";
 import LxtTaskAdd from "./components/LxtTaskAdd";
-import LxtListTask from "./components/LxtListTask";
+import LxtListTask from "./components/LxtListStudent";
 
 function App() {
   //mock data

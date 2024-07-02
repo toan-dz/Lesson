@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-export default function LxtApp() {
+export default function lxtListStudent() {
   const [students, setStudents] = useState([]);
   const [newStudent, setNewStudent] = useState({
     lxtId: "",
